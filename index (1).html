@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ms">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown UASA 2025</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Exo:wght@600;800&display=swap');
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        font-family: 'Exo', sans-serif;
+      }
+
+      /* Bintang berkelip */
+      .stars, .stars2, .stars3 {
+        position: absolute; inset: 0; background-repeat: repeat; background-size: contain; pointer-events: none;
+      }
+      .stars {
+        background-image: radial-gradient(2px 2px at 20px 30px, rgba(178,205,255,.9) 40%, transparent 42%),
+                         radial-gradient(1px 1px at 100px 80px, rgba(255,255,255,1) 40%, transparent 42%),
+                         radial-gradient(1.5px 1.5px at 220px 120px, rgba(160,200,255,.9) 40%, transparent 42%),
+                         radial-gradient(1px 1px at 340px 200px, rgba(255,255,255,.9) 40%, transparent 42%);
+        animation: twinkle 6s infinite alternate;
+      }
+      .stars2 {
+        background-image: radial-gradient(1px 1px at 60px 140px, rgba(255,255,255,.9) 40%, transparent 42%),
+                         radial-gradient(1.5px 1.5px at 180px 200px, rgba(150,190,255,.9) 40%, transparent 42%),
+                         radial-gradient(1px 1px at 260px 40px, rgba(255,255,255,.95) 40%, transparent 42%),
+                         radial-gradient(1.2px 1.2px at 420px 160px, rgba(170,210,255,.95) 40%, transparent 42%);
+        animation: twinkle 9s infinite alternate;
+      }
+      .stars3 {
+        background-image: radial-gradient(1px 1px at 120px 20px, rgba(255,255,255,.9) 40%, transparent 42%),
+                         radial-gradient(1.2px 1.2px at 300px 260px, rgba(180,215,255,.95) 40%, transparent 42%),
+                         radial-gradient(1px 1px at 500px 180px, rgba(255,255,255,1) 40%, transparent 42%),
+                         radial-gradient(1.5px 1.5px at 640px 90px, rgba(170,210,255,1) 40%, transparent 42%);
+        animation: twinkle 12s infinite alternate;
+      }
+      @keyframes twinkle {
+        from { opacity:.5; transform: translateY(0); }
+        to { opacity:1; transform: translateY(-.5px); }
+      }
+
+      /* Nebula */
+      .nebula::before, .nebula::after {
+        content:""; position:absolute; width:55vmax; height:55vmax; border-radius:50%; filter: blur(80px);
+        background: radial-gradient(closest-side, rgba(80,180,255,.35), transparent);
+      }
+      .nebula::before { top:-10vmax; left:-10vmax; }
+      .nebula::after { bottom:-15vmax; right:-12vmax; }
+
+      /* Neon terang */
+      .neon-blue {
+        color: #7ecbff;
+        text-shadow: 0 0 12px rgba(150,220,255,1), 0 0 28px rgba(100,180,255,.9), 0 0 60px rgba(80,150,255,.9);
+      }
+
+      .soft-glass {
+        background: rgba(10,20,40,.65);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(120,180,255,.35);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      /* Marquee */
+      .marquee {
+        white-space: nowrap;
+        animation: scrollX 14s linear infinite;
+        text-shadow: 0 0 8px rgba(140,220,255,.9);
+      }
+      @keyframes scrollX {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nebula"></div>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <div style="position:relative; z-index:10; max-width:800px; width:100%; padding:1rem;">
+      <h1 class="neon-blue" style="font-family:'Exo',sans-serif; font-size:2rem;">بِسْمِ ٱللّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h1>
+      <h2 class="neon-blue" style="font-family:'Orbitron',sans-serif; font-size:3rem; margin-top:1rem; letter-spacing:0.2em;">COUNTDOWN UASA 2025</h2>
+
+      <div id="countdown" class="soft-glass" style="margin-top:2rem;">
+        <div id="days" class="neon-blue" style="font-size:5rem; font-family:'Orbitron',sans-serif;">0</div>
+        <div style="letter-spacing:0.3em; margin-bottom:1rem;">HARI</div>
+        <div style="display:flex; justify-content:center; gap:1rem;">
+          <div class="soft-glass">
+            <div id="hours" class="neon-blue" style="font-size:2rem; font-family:'Orbitron',sans-serif;">00</div>
+            <div>Jam</div>
+          </div>
+          <div class="soft-glass">
+            <div id="minutes" class="neon-blue" style="font-size:2rem; font-family:'Orbitron',sans-serif;">00</div>
+            <div>Minit</div>
+          </div>
+          <div class="soft-glass">
+            <div id="seconds" class="neon-blue" style="font-size:2rem; font-family:'Orbitron',sans-serif;">00</div>
+            <div>Saat</div>
+          </div>
+        </div>
+        <div class="neon-blue" style="margin-top:1.5rem; font-size:1.5rem; font-family:'Orbitron',sans-serif;">8 OKTOBER 2025</div>
+      </div>
+
+      <div class="marquee" style="margin-top:1.5rem;">SELAMAT MENDUDUKI UASA 2025 • SELAMAT MENDUDUKI UASA 2025 • SELAMAT MENDUDUKI UASA 2025</div>
+      <footer style="margin-top:1rem; font-size:0.8rem; color:#bfe8ff;">created by @UstazahNazirah® – 2025</footer>
+    </div>
+
+    <script>
+      const targetDate = new Date("2025-10-08T00:00:00+08:00").getTime();
+      function updateCountdown(){
+        const now = new Date().getTime();
+        const diff = Math.max(0, targetDate - now);
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff / (1000*60*60)) % 24);
+        const minutes = Math.floor((diff / (1000*60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
+</html>
